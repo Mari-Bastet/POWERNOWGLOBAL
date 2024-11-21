@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .icon {
+            margin-bottom: 1rem;
+        }
+        .icon img {
+            width: 80px;
+        }
+        .form-group {
+            margin: 1rem 0;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 0.5rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .button-group {
+            margin-top: 1rem;
+        }
+        button {
+            width: 45%;
+            padding: 0.7rem;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-login {
+            background-color: #f9a825;
+            color: #fff;
+        }
+        .btn-register {
+            background-color: transparent;
+            border: 1px solid #f9a825;
+            color: #f9a825;
+        }
+        .btn-login:hover {
+            background-color: #f57f17;
+        }
+        .btn-register:hover {
+            background-color: #f9a825;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   <!--   <div class="icon">
+            <img th:src="@{/images/icon.png}" alt="Logo PowerNow">
+        </div>-->     
+        <form action="/powernow/usuarios/login" method="post">
+         <div class="dialog-row">
+            <label th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="redText"></label>                   
+        </div>
+            <div class="form-group">
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="btn-login">Entrar</button>
+                <button type="button" class="btn-register" th:onclick="|window.location='@{/usuarios/cadastro}'|">Cadastro</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

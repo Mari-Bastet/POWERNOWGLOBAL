@@ -1,0 +1,90 @@
+/* Reset básico para garantir que todos os navegadores comecem do mesmo ponto */
+body, h1, p, label, input, button, a, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf6f6; /* Cor de fundo clara */
+    color: #333; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 20px; /* Espaçamento interno */
+}
+
+/* Estilo para cabeçalhos */
+h1 {
+    color: #ff6f61; /* Tom de rosa */
+    margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+form {
+    background-color: #fff;
+    border: 1px solid #ffb6b6; /* Tom de rosa claro para borda */
+    border-radius: 8px; /* Bordas levemente arredondadas */
+    padding: 20px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Estilo dos campos do formulário */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #ff6f61; /* Tom de rosa */
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: calc(100% - 22px); /* Ajusta a largura para incluir padding e border */
+    padding: 10px;
+    border: 1px solid #ffb6b6; /* Borda rosa clara */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-bottom: 15px;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #ff6f61; /* Tom de rosa */
+    color: #fff; /* Texto branco */
+    border: none;
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #ff5e4f; /* Tom de rosa mais escuro */
+}
+
+/* Estilo dos links */
+a {
+    color: #ff6f61; /* Tom de rosa */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para a seção de detalhes */
+div {
+    background-color: #fff;
+    border: 1px solid #ffb6b6; /* Tom de rosa claro para borda */
+    border-radius: 8px; /* Bordas levemente arredondadas */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+/* Adiciona margem entre parágrafos dentro de div */
+div p {
+    margin-bottom: 10px;
+}

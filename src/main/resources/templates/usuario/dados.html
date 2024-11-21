@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Cliente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5dc;
+        }
+
+        .profile-container {
+            width: 360px;
+            margin: 50px auto;
+            background-color: #ffecd1;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #ff4500;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        .menu-icon .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        .profile-form {
+            margin-top: 20px;
+        }
+
+        .profile-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .profile-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-form input[readonly] {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="header">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <h1>Olá, <span th:text="${cliente.nome}"></span>!</h1>
+        </div>
+        <div class="profile-form">
+            <form method="post" th:action="@{/clientes/atualizarPerfil}">
+            
+            <input type="hidden" th:value="${cliente.id}" name="id"/>
+            
+                <label>Gênero</label>
+                <input type="text" th:value="${cliente.sexo}" readonly>
+                
+                <label>Data de Nascimento</label>
+                <input type="date" th:value="${cliente.data_nascimento}" readonly>
+                
+                <label>Email</label>
+                <input type="email" th:value="${cliente.email}" readonly>
+                
+                <label>Senha</label>
+                <input type="password" th:value="${cliente.senha}">
+                
+                <button type="submit">Atualizar Perfil</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

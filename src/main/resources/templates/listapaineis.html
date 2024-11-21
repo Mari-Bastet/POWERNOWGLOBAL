@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Selecionar Painel Solar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 200px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #fff9db;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .card.selected {
+            background-color: #cfeff8;
+        }
+
+        .radio {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .btn-select {
+            background-color: #f6a623;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-select:hover {
+            background-color: #e5931a;
+        }
+    </style>
+</head>
+<body>
+<h1>Selecionar Painel Solar</h1>
+<form action="/powernow/paineis/selecionarPainel" method="post">
+    <div class="container">
+        <div th:each="painel : ${paineis}" class="card" th:classappend="${painel.id == selectedPainelId ? 'selected' : ''}">
+            <div>
+                <p><strong>Modelo:</strong> <span th:text="${painel.modelo}"></span></p>
+                <p><strong>Potência:</strong> <span th:text="${painel.potencia}"></span></p>
+                <p><strong>Fabricante:</strong> <span th:text="${painel.fabricante}"></span></p>
+            </div>
+            <!-- Radio button para seleção -->
+            <input type="radio" class="radio" name="selectedPainelId" th:value="${painel.id}" th:checked="${painel.id == selectedPainelId}" />
+        </div>
+    </div>
+
+    <!-- Botão para confirmar seleção -->
+    <button type="submit" class="btn-select">Selecionar</button>
+</form>
+</body>
+</html>

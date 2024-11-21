@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Erro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec; /* Rosa claro */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff5722; /* Laranja */
+            margin-top: 50px;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .error-box {
+            display: inline-block;
+            background-color: #fff;
+            border: 2px solid #4caf50; /* Verde */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            background-color: #ff5722; /* Laranja */
+            color: white;
+            border: 2px solid #ff5722; /* Laranja */
+            border-radius: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        a:hover {
+            background-color: #e64a19; /* Laranja escuro */
+            border-color: #e64a19; /* Laranja escuro */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ocorreu um Erro</h1>
+
+    <div class="error-box">
+        <p>Desculpe, algo deu errado. A página que você está tentando acessar não pôde ser encontrada ou ocorreu um erro inesperado.</p>
+        <p>Por favor, volte à <a href="/">página inicial</a> e tente novamente.</p>
+    </div>
+</body>
+</html>
