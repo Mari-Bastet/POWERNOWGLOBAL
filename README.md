@@ -1,83 +1,28 @@
-# Projeto StylistPro
+# Projeto PowerNow
 
 ## Integrantes
 Jaqueline Martins - RM551744 - DevOps & Cloud Computing <br>
-Mariana Bastos    - RM97510  - Java Advanced <br>
+Mariana Bastos    - RM97510  - Java Advanced/Quality Assurance<br>
 Matheus Oliveira  - RM551155 - Mobile Development/Database <br>
-Victor Freitas    - RM99982  - Advanced Business with C#/Quality Assurance<br>
+Victor Freitas    - RM99982  - Advanced Business with C#<br>
 Breno Giacoppini  - RM98695  - Artificial Intelligence <br>
-
-## NOTAS DE ATUALIZAÇÃO - SPRINT 4
-- Criação de página de geração de modelo utilizando Thymeleaf
-   http://localhost:8080/stylishpro/modelos/gerarmodelo?
-![image](https://github.com/user-attachments/assets/d18353b0-1a0e-486a-98db-52872f377538)
-
-- Inclusão de Spring Security e criptografia de senhas no login e signup
-   http://localhost:8080/stylishpro/clientes/adicionar
-   http://localhost:8080/stylishpro/clientes/login
-  
-- Utilização do Spring Actuator para monitoramento
-![image](https://github.com/user-attachments/assets/761b8838-4e50-4661-89d9-adbda5383872)
-
-  
-
 
 
 ## PROPOSTA DE SOLUÇÃO
-Com a chegada da pandemia, diversas empresas apresentaram grandes
-dificuldades em se manterem competitivas e ativas em um mundo onde a
-reinvenção se mostrou necessária para a sobrevivência no mercado. Porém, os
-impactos da pandemia se mantiveram mesmo após seu término, ainda
-causando dificuldades para diversas empresas se reerguerem financeiramente.<br>
-
-No entanto, não somente a indústria sofreu mudanças, mas também a
-sociedade como um todo. A mudança de perspectiva sobre valores e condutas
-na sociedade está afetando diretamente as empresas envolvidas com moda e
-roupas, requisitando uma reinvenção nessas marcas e lojas à nova realidade
-proposta pela população, cuja necessidade de se reformular se torna
-imprescindível para seu crescimento, adaptando seu negócio para os mais
-diversos públicos e acompanhando as novas tendências.<br>
-
-Como citado em uma matéria do portal de notícias CNN Brasil, “[...] a resposta
-está na dificuldade em atender a demanda do consumidor brasileiro e de criar
-raízes no mercado nacional.” e “[...] o especialista (Ulysses Reis) afirma que
-ambas as empresas necessitavam de adequações às mudanças do mercado de
-consumo, especialmente em termos de inovação.”<br>
-
-Com essa necessidade em mente, nossa equipe propõe como solução a
-ferramenta StylistPro, focada no segmento de varejo de roupas e moda,
-visando o aprofundamento das necessidades do cliente, seus gostos e suas
-perspectivas futuras sobre o mercado para obter insights no desenvolvimento
-de novas peças a serem lançadas nas lojas. Isso será feito através de uma
-inteligência artificial que, através dos dados obtidos pelas mais diversas
-plataformas existentes como blogs, redes sociais e padrões de compra, assim
-como a observação de grandes movimentos da moda, gerará imagens de peças
-que estão e/ou serão tendência para o público-alvo, aumentando, assim, a
-identificação do consumidor com a peça desenvolvida. Além disso, com o
-crescimento da moda sustentável pelo mundo, também serão propostas
-soluções visando a utilização de materiais não poluentes, contribuindo para um
-desenvolvimento amigável ao planeta, estimulando a fixação de valores à
-empresa que também ocasionarão em uma maior conexão entre o consumidor
-e a empresa.<br>
-
-Para uma maior personalização e fidelização, um sistema de recomendação
-personalizado analisará as tendências de compra de cada um individualmente,
-além de auxiliar o consumidor em sua jornada na compra de vestimentas que
-aumentarão sua autoestima e satisfação com a plataforma e-commerce.
-
-### Diagrama Entidade-Relacionamento
-![image](https://github.com/Mari-Bastet/JAVACHALLENGEFINAL/assets/82931897/3653c2ba-79b6-44c4-9f67-2372bd34cdec)
-
-
-### Diagrama de Classes
-![diagrama_classes_sprint2](https://github.com/Mari-Bastet/JAVACHALLENGEFINAL/assets/82931897/00b00f4d-54c0-41e7-afde-15003e6921aa)
+O mercado de energia solar apresenta grande crescimento no Brasil. Conforme notícia do Portal Solar:
+“O Brasil acrescentou 6,9 GW de energia solar no primeiro semestre de 2024, mostram dados da Agência Nacional de Energia Elétrica (Aneel) apurados pelo Portal Solar. O montante corresponde a 4 GW na geração distribuída, modalidade composta por sistemas residenciais e comerciais de menor porte, e 2,9 GW na geração centralizada, mercado formado por grandes usinas fotovoltaicas.<br>
+Com o avanço, o país chegou a 44 GW de capacidade instalada na fonte solar, a segunda maior da matriz elétrica brasileira, atrás apenas da hídrica. O crescimento fez com que a Associação Brasileira de Energia Solar Fotovoltaica (Absolar) revisasse a projeção de crescimento para 2024, com perspectiva da tecnologia superar 47 GW acumulados ao final do ano. Em dezembro, a projeção era de 45,5 GW.*”<br>
+Com base nessas informações, desenvolvemos a solução PowerNow, um aplicativo intuitivo e informativo cujo principal objetivo é analisar a geração de energia de paineis solares para maximizar a eficiência da captação de energia, assim como informar de maneira tangível e lúdica os benefícios a curto e longo prazo de sua utilização, tanto economicamente quanto ecologicamente.<br>
+A grande inovação do app é a integração de uma inteligência artificial que, com base em informações geográficas e climáticas, prevê a quantidade de energia que seria gerada nos próximos dias ou meses. Isso permitiria oferecer recomendações personalizadas sobre a utilização de eletrodomésticos, dispositivos inteligentes e ferramentas utilizadas para a captação da energia, como, por exemplo, sugerir o desligamento do sistema de rastreamento solar em dia com baixa incidência de luz, o que ajudaria a economizar energia, uma vez que o próprio mecanismo de rastreamento consome uma parte da energia gerada.<br>
+O aplicativo também inclui informações sobre o investimento inicial necessário para quem está começando a utilizar a energia solar. Ele ajudaria o usuário a entender o retorno sobre o investimento com base nas condições específicas de sua residência. A ideia é criar uma solução que incentive mais pessoas a adotarem a energia solar, proporcionando não apenas uma economia financeira, mas também um maior entendimento sobre os benefícios ambientais dessa tecnologia.<br>
+*Com 45,5 GW de energia solar instalada, o Brasil poderia fornecer energia para cerca de 218,4 milhões de pessoas (considerando um consumo médio de 150 kWh por pessoa por mês).
 
 ## Passo a passo para rodar a aplicação
 
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/Mari-Bastet/JAVACHALLENGEFINAL.git
+    git clone https://github.com/Mari-Bastet/POWERNOWGLOBAL.git
     ```
 
 2. Importe o projeto na IDE de sua preferência
@@ -86,47 +31,10 @@ aumentarão sua autoestima e satisfação com a plataforma e-commerce.
 3. Rode a Classe "ChallengeApplication.java"
 ![image](https://github.com/Mari-Bastet/JAVACHALLENGEFINAL/assets/82931897/2908161a-c66a-4491-9dae-ed100b67961e)
 
-## Endpoints da API
-Arquivo contendo todos os endpoints feitos e testados até o momento no Postman se encontram na pasta "Documentacao".<br>
-__Também estão disponíveis pelo Swagger.__
 
 
 
-- CLIENTES E COMPRAS <br>
- Método: GET <br>
- link: localhost:8080/clientes <br>
- Descrição: Retorna todos os clientes e suas respectivas compras (se houverem compras feitas). <br>
 
- - CLIENTE POR ID <br>
- Método: GET <br>
- link: localhost:8080/clientes/{id_cliente} <br>
- Descrição: Retorna o cliente de ID informado. <br>
-
-- ADICIONAR CLIENTE <br>
- Método: POST <br>
- link: localhost:8080/clientes/adicionar <br>
- Modelo JSON: ``` {
-    "nome":"Calma",
-    "email":"tranquilo@email.com",
-    "data_nascimento":"01/10/2003",
-    "endereco":"Rua tranquilo"
-} ``` <br>
- Descrição: Cadastro de cliente. <br>
-
-- PRODUTOS POR COMPRA <br>
- Método: GET <br>
- link: localhost:8080/compras/prodCompra/{id_compra} <br>
- Descrição: Retorna todas as compras e seus respectivos produtos. <br>
-
- - PRODUTOS POR COMPRA <br>
- Método: GET <br>
- link: localhost:8080/feedbacks/{id_cliente} <br>
- Descrição: Retorna todos os feedbacks do cliente de ID informado. <br>
-
- - FILIAIS E COMPRAS <br>
- Método: GET <br>
- link: localhost:8080/filial/relatorios/compras} <br>
- Descrição: Retorna a quantidade de compras por filial. <br>
  
  
   
