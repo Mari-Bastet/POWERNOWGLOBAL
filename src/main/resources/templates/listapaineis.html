@@ -75,12 +75,10 @@
                 <p><strong>Potência:</strong> <span th:text="${painel.potencia}"></span></p>
                 <p><strong>Fabricante:</strong> <span th:text="${painel.fabricante}"></span></p>
             </div>
-            <!-- Radio button para seleção -->
             <input type="radio" class="radio" name="selectedPainelId" th:value="${painel.id}" th:checked="${painel.id == selectedPainelId}" />
         </div>
     </div>
 
-    <!-- Botão para confirmar seleção -->
     <button type="submit" class="btn-select">Selecionar</button>
 </form>
 </body>
