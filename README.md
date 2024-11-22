@@ -17,6 +17,9 @@ A grande inovação do app é a integração de uma inteligência artificial que
 O aplicativo também inclui informações sobre o investimento inicial necessário para quem está começando a utilizar a energia solar. Ele ajudaria o usuário a entender o retorno sobre o investimento com base nas condições específicas de sua residência. A ideia é criar uma solução que incentive mais pessoas a adotarem a energia solar, proporcionando não apenas uma economia financeira, mas também um maior entendimento sobre os benefícios ambientais dessa tecnologia.<br>
 *Com 45,5 GW de energia solar instalada, o Brasil poderia fornecer energia para cerca de 218,4 milhões de pessoas (considerando um consumo médio de 150 kWh por pessoa por mês).
 
+
+LINK DO DEPLOY: https://powernowglobal.onrender.com/powernow
+
 ## Telas
 ![image](https://github.com/user-attachments/assets/1cee55c1-549f-471a-bacd-6e4a3653d4d7)
 ![image](https://github.com/user-attachments/assets/e8c2c055-732c-4880-a408-c89169796f72)
