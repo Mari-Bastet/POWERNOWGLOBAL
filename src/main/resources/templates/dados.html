@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Editar Dados</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        text-align: center;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 600px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 0.5rem;
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.7rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    input:disabled {
+        background-color: #FFFACD;
+        border: 2px solid #FFC107;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.7rem;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        background-color: #f9a825; 
+        color: #fff;
+        cursor: pointer;
+        margin-top: 1rem;
+    }
+
+    button:hover {
+        background-color: #f57f17; 
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Dados</h1>
+        <form th:action="@{/usuarios/atualizar}" th:object="${usuario}" method="post">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" th:field="*{nome}" disabled/>
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" th:field="*{senha}" />
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}" disabled />
+            </div>
+            <div>
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" th:field="*{telefone}" />
+            </div>
+            <div>
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" th:field="*{endereco}" />
+            </div>
+            <button type="submit">Atualizar Dados</button>
+        </form>
+    </div>
+</body>
+</html>

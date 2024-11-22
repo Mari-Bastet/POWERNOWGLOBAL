@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fiap.br.powernow.PainelSolarDTO;
-import fiap.br.powernow.PainelSolarDTOBuilder;
-import fiap.br.powernow.PainelSolarUsuarioDTO;
-import fiap.br.powernow.PainelSolarUsuarioDTOBuilder;
+import fiap.br.powernow.builder.PainelSolarDTO;
+import fiap.br.powernow.builder.PainelSolarDTOBuilder;
+import fiap.br.powernow.builder.PainelSolarUsuarioDTO;
+import fiap.br.powernow.builder.PainelSolarUsuarioDTOBuilder;
 import fiap.br.powernow.domain.PainelSolar;
 import fiap.br.powernow.repository.PainelSolarRepository;
 import fiap.br.powernow.repository.UsuarioRepository;
@@ -51,7 +51,18 @@ public class PainelSolarController {
 	public String selecionarPainel(@RequestParam("selectedPainelId") Long selectedPainelId, Model model) {
 
 		painelUserService.inserirPainelSolarUsuario(selectedPainelId);
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = ((User) authentication.getPrincipal()).getUsername();
+
+		Long iUsuario = userRepo.findByEmail(username).get().getId();
+
+		List<PainelSolarUsuarioDTO> paineis = PainelSolarUsuarioDTOBuilder
+				.buildAll(repo.buscarPainelPorUsuario(username), iUsuario, painelUserService);
+
+		model.addAttribute("painel", paineis);
 		return "meuspaineis";
+		
 	}
 
 	@GetMapping("/meus-paineis")

@@ -57,7 +57,7 @@ body {
 	height: 10px;
 	background: linear-gradient(to right, #ffc107, #ff6f00);
 	border-radius: 5px;
-	width: 60%; /* Simula o progresso */
+	width: 60%;
 	z-index: 2;
 }
 
@@ -126,29 +126,22 @@ body {
 		</div>
 	</div>
 
-	<!-- Imagem da casa com painel solar -->
-	<!-- 
-    <div class="image-container">
-        <img src="path-to-solar-panel-image.png" alt="Casa com painel solar">
-    </div>
-    -->
+	<div class="image-container">
+		<a
+			href="https://www.flaticon.com/free-icon/solar-house_2651834?term=house+solar&page=1&position=16&origin=search&related_id=2651834"
+			target="_blank"> <img
+			src="https://cdn-icons-png.flaticon.com/512/2651/2651834.png"
+			alt="Casa com painel solar" style="width: 200px; height: auto;" />
+		</a>
+	</div>
 
 	<div class="info-container">Com sua energia solar, você guardou
 		no bolso o equivalente a 20 cafés quentinhos!</div>
 
 	<div class="buttons-container">
-		<!-- Botão Meus Painéis -->
-		<a th:href="@{/paineis/meus-paineis}"
-			class="button"> <!-- 
-            <img src="path-to-panel-icon.png" alt="Ícone de painel solar">
-            --> <span>Meus Painéis</span>
-		</a>
-
-		<!-- Botão Perfil -->
-		<a th:href="@{/usuarios/perfil}"
-			class="button"> <!-- 
-            <img src="path-to-profile-icon.png" alt="Ícone de perfil">
-            --> <span>Perfil</span>
+		<a th:href="@{/paineis/meus-paineis}" class="button"> <span>Meus
+				Painéis</span>
+		</a> <a th:href="@{/usuarios/editar}" class="button"> <span>Perfil</span>
 		</a>
 	</div>
 </body>

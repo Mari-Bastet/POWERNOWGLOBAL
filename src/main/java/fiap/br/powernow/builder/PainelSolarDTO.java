@@ -1,4 +1,4 @@
-package fiap.br.powernow;
+package fiap.br.powernow.builder;
 
 public class PainelSolarDTO {
 	

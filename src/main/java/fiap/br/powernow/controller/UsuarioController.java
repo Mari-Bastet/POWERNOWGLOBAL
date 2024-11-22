@@ -1,22 +1,15 @@
 package fiap.br.powernow.controller;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import fiap.br.powernow.domain.Usuario;
 import fiap.br.powernow.repository.UsuarioRepository;
@@ -30,7 +23,6 @@ public class UsuarioController {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
 
 	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
 	public String retornaTemplateAdicionarUsuario(Model model) {
@@ -52,7 +44,7 @@ public class UsuarioController {
 
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 			repo.save(usuario);
-			return "/inicial";
+			return "/login";
 
 		} catch (Exception e) {
 			return "redirect:/erro";
@@ -64,59 +56,39 @@ public class UsuarioController {
 
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String carregaTemplateInicial() {
 
 		return "inicial";
 	}
-	
-	@RequestMapping(value = "/dadoscliente", method = RequestMethod.POST)
-	public String carregaTemplateDadosUsuario(@RequestParam("id") Long id,  Model model) {
 
-		Optional<Usuario> cliente = repo.findById(id);
-        model.addAttribute("cliente", cliente);
-		return "/usuario/dados";
-	}
-	
-	@PostMapping("/clientes/atualizarPerfil")
-	public String atualizarPerfil(@ModelAttribute Usuario cliente) {
-	    // Lógica para atualizar o perfil do cliente
-	    if (cliente != null) {
-	        repo.save(cliente);
-	    }
-	    return "redirect:/clientes/dadoscliente?id=" + cliente.getId(); // Redireciona para o perfil atualizado
+	@RequestMapping(value = "/editar", method = RequestMethod.GET)
+	public String carregaTemplateEditarDados(Model model) {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = ((User) authentication.getPrincipal()).getUsername();
+
+		Usuario usuario = repo.findByEmail(username).get();
+
+		model.addAttribute("usuario", usuario);
+
+		return "dados";
 	}
 
+	@RequestMapping(value = "/atualizar", method = RequestMethod.POST)
+	public String atualizarDadosUsuario(@ModelAttribute("usuario") Usuario usuarioAtualizado) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = ((User) authentication.getPrincipal()).getUsername();
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<String> excluirCliente(@PathVariable Long id) {
+		Usuario usuario = repo.findByEmail(username).get();
 
-		try {
-			repo.deleteById(id);
-			return ResponseEntity.ok("Cliente eliminado com sucesso");
+		usuario.setEndereco(usuarioAtualizado.getEndereco());
+		usuario.setSenha(usuarioAtualizado.getSenha());
+		usuario.setTelefone(usuarioAtualizado.getTelefone());
 
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-					.body("Erro ao remover cliente" + e.getMessage());
-
-		}
+		repo.save(usuario);
+		return "inicial";
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> consultarclientePorId(@PathVariable Long id) {
-		try {
-			Optional<Usuario> cli = repo.findById(id);
-			if (cli.isPresent()) {
-				return ResponseEntity.ok(cli.get());
-
-			} else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente com o ID " + id + " não encontrado");
-			}
-
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-					.body("Erro ao consultar cliente por ID: " + e.getMessage());
-		}
-	}
 }
